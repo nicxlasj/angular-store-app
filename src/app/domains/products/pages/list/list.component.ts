@@ -8,5 +8,7 @@ import { ProductComponent } from '../../components/product/product.component';
   styleUrl: './list.component.css'
 })
 export class ListComponent {
-
+  addToCart(message: string) {
+    alert(message);
+  }
 }

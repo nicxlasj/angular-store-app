@@ -7,7 +7,7 @@ import { ListComponent } from './domains/products/pages/list/list.component';
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet, ListComponent],
-  templateUrl: './app.component.html',
+  template: '<router-outlet />',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
