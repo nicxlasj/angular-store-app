@@ -1,1 +1,5 @@
-<app-product (addToCart)="addToCart($event)"></app-product>
+@for (product of products(); track $index) {
+<div class="">
+  <app-product [product]="product"></app-product>
+</div>
+}

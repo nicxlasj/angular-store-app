@@ -1,19 +1,12 @@
-<div class="h-56 m-7 w-60 inline-block">
+<div class="h-56 m-7 w-60">
   <figure class="">
-    <img class="rounded-lg h-44 w-60 object-cover" src="https://i.blogs.es/cbbf26/macbook-air-m2-21/650_1200.jpeg" />
+    <img class="rounded-lg h-44 w-60 object-cover" [src]="product.image" />
   </figure>
-  <h3 class="mt-2 inline-block font-light">MacBook Air 13"</h3>
-  <p class="text-right inline-block ml-20 font-bold ">$300</p>
+  <div class="flex justify-between">
+    <h3 class="mt-2 flex font-light">{{ product.title.length > 12 ? product.title.substring(0,12) : product.title }}</h3>
+    <p class="mt-2 font-bold ">${{ product.price }}</p>
+  </div>
 
-  <button class="rounded-lg bg-slate-300 w-full h-7 mt-2 font-semibold" (click)="addToCartHandler()">Add to cart</button>
-</div>
-
-<div class="h-56 m-7 w-60 inline-block">
-  <figure class="">
-    <img class="rounded-lg h-44 w-60 object-cover" src="https://i.ebayimg.com/thumbs/images/g/5LgAAOSwvTZlouAi/s-l640.jpg" />
-  </figure>
-  <h3 class="mt-2 inline-block font-light">Nike blazer white</h3>
-  <p class="text-right inline-block ml-20 font-bold ">$100</p>
   <button class="rounded-lg bg-slate-300 w-full h-7 mt-2 font-semibold" (click)="addToCartHandler()">Add to cart</button>
 </div>
           
