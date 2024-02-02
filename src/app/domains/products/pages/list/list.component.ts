@@ -13,7 +13,6 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
     this.getProducts();
   }
-  algos = [{name: 'nico', age: 17}, {name: 'jose', age: 17}];
   addToCart(message: string) {
     alert(message);
   }

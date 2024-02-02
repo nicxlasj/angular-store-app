@@ -1,5 +1,6 @@
-@for (product of products(); track $index) {
-<div class="">
+<div class="grid grid-cols-4 ml-5">
+  @for (product of products(); track $index) {
+
   <app-product [product]="product"></app-product>
+  }
 </div>
-}

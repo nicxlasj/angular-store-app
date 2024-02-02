@@ -1,12 +1,22 @@
-<div class="h-56 m-7 w-60">
+<div class="h-56 m-7 w-60 mt-28 ">
   <figure class="">
-    <img class="rounded-lg h-44 w-60 object-cover" [src]="product.image" />
+    <img class="rounded-md h-44 w-60 object-cover" [src]="product.image" />
   </figure>
   <div class="flex justify-between">
-    <h3 class="mt-2 flex font-light">{{ product.title.length > 12 ? product.title.substring(0,12) : product.title }}</h3>
-    <p class="mt-2 font-bold ">${{ product.price }}</p>
+    <h3 class="mt-2 flex font-light">
+      {{
+        product.title.length > 20
+          ? product.title.substring(0, 20) + "..."
+          : product.title
+      }}
+    </h3>
+    <p class="mt-2 font-bold">${{ product.price }}</p>
   </div>
 
-  <button class="rounded-lg bg-slate-300 w-full h-7 mt-2 font-semibold" (click)="addToCartHandler()">Add to cart</button>
+  <button
+    class="rounded-lg bg-slate-300 w-full h-7 mt-2 font-semibold"
+    (click)="addToCartHandler()"
+  >
+    Add to cart
+  </button>
 </div>
-          

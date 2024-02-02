@@ -13,7 +13,6 @@ export class ProductComponent {
   @Output() addToCart = new EventEmitter<string>();
 
   addToCartHandler() {
-    console.log('from child');
     this.addToCart.emit('Message from father');
   }
 }
