@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, Input, signal } from '@angular/core';
+import { Product } from '../models/product.model';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,10 @@ import { Component, signal } from '@angular/core';
 })
 export class HeaderComponent {
   showCart = signal(false);
+  @Input() cartProducts : Product[] = []; 
+
   showCartHandler() {
     this.showCart.update(x => !x);
   }
+
 }

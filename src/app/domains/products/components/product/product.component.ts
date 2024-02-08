@@ -10,9 +10,9 @@ import { Product } from '../../../shared/models/product.model';
 })
 export class ProductComponent {
   @Input({ required: true }) product!: Product;
-  @Output() addToCart = new EventEmitter<string>();
+  @Output() cartCounter = new EventEmitter<Product>();
 
   addToCartHandler() {
-    this.addToCart.emit('Message from father');
+    this.cartCounter.emit(this.product);
   }
 }
