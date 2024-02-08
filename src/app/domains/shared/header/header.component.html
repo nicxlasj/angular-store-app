@@ -1,16 +1,53 @@
-<nav class="bg-white w-full flex justify-between items-center fixed mx-auto">
-    <figure class="h-16 w-16 ml-6">
-        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968204.png" alt="Logo" class="cursor-pointer">
-    </figure>
-    <div class="my-5">
-        <ul class="flex items-center gap-16">
-            <li class="font-light hover:text-gray-500 cursor-pointer">Categories</li>
-            <li class="font-light hover:text-gray-500 cursor-pointer">My Account</li>
-            <li class="font-light hover:text-gray-500 cursor-pointer">Shopping cart</li>
-            <li class="font-light hover:text-gray-500 cursor-pointer">Orders</li>
-        </ul>
-    </div>
-    <div>
-        <button class="bg-black rounded-xl w-32 h-12 text-white hover:bg-zinc-900 mx-4">Sign In</button>
-    </div>
+<nav class="bg-white w-full flex justify-between items-center mx-auto">
+  <figure class="h-16 w-16 ml-6">
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/5968/5968204.png"
+      alt="Logo"
+      class="cursor-pointer"
+    />
+  </figure>
+  <div class="my-5">
+    <ul class="flex items-center gap-16">
+      <li class="font-light hover:text-gray-500 cursor-pointer">Categories</li>
+      <li class="font-light hover:text-gray-500 cursor-pointer">My Account</li>
+      <li class="font-light hover:text-gray-500 cursor-pointer">
+        Log In
+      </li>
+      <li class="font-light hover:text-gray-500 cursor-pointer">Orders</li>
+    </ul>
+  </div>
+  <div class="w-8 h-8 items-center mr-3 cursor-pointer">
+    
+    <img
+      class="w-full h-full"
+      src="https://www.svgrepo.com/download/138438/shopping-cart.svg"
+      alt=""
+      (click)="showCartHandler()"  
+    />
+  </div>
 </nav>
+
+
+<div
+  class="fixed border-l-8 border-gray-300 top-0 right-0 w-72 h-screen p-4 overflow-y-auto transition-transform bg-white duration-300 delay-100" [class.translate-x-full] = "!showCart()"
+>
+  <div class="flex justify-between items-center">
+    <p class="font-light text-xl">My Cart</p>
+    <button (click)="showCartHandler()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
