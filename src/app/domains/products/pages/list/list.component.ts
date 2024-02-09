@@ -19,7 +19,7 @@ export class ListComponent implements OnInit {
     this.productsToCart.update(prevState => {
       const products = [...prevState, product];
       return products;
-    })
+    });
   }
 
   async getProducts(){

@@ -48,4 +48,9 @@
       </svg>
     </button>
   </div>
+  <div class="h-full w-full mt-2 flex flex-col space-y-2 ">
+    @for (product of cartProducts; track $index) {
+      <app-product-cart />
+    }
+  </div>
 </div>
