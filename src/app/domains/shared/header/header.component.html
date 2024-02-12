@@ -15,7 +15,7 @@
     </ul>
   </div>
   <div class="w-8 h-8 items-center mr-3 cursor-pointer flex">
-    <p class="font-light">{{ cartProducts.length }}</p>
+    <p class="font-light">{{ cartProducts().length }}</p>
     <img
       class="w-full h-full"
       src="https://www.svgrepo.com/download/138438/shopping-cart.svg"
@@ -49,8 +49,6 @@
     </button>
   </div>
   <div class="h-full w-full mt-2 flex flex-col space-y-2 ">
-    @for (product of cartProducts; track $index) {
-      <app-product-cart />
-    }
+    <app-product-cart />
   </div>
 </div>

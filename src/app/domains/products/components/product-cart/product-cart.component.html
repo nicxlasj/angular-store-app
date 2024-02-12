@@ -1,24 +1,28 @@
-<div class="w-full h-16 rounded-lg border border-black flex justify-between items-center p-3">
-    <div class="w-auto h-10 flex space-x-2 items-center">
-        <div class="rounded-lg w-10 h-10 border border-black">
-            <img [src]="product().image" alt="" class="w-full h-full object-fill rounded-lg">            
-        </div>
-        <p class="font-light">Macbook Air 13"</p>
-    </div>
-    <div>
-        <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-        class="w-6 h-6 cursor-pointer"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M6 18L18 6M6 6l12 12"
-        />
-      </svg>
-    </div>
-</div>
+@for (productCart of productsCart(); track $index) {
+  <div class="w-full h-16 mb-3 rounded-lg border border-black flex justify-between items-center p-3">
+      <div class="w-auto h-10 flex space-x-2 items-center">
+          <div class="rounded-lg w-10 h-10 border">
+              <img [src]="productCart.image" alt="" class="w-full h-full object-fill rounded-lg">            
+          </div>
+          <p class="font-light">{{ productCart.title.length > 16 ? productCart.title.substring(0, 16) + '...' : productCart.title }}</p>
+      </div>
+      <div class="flex">
+        <p>${{ productCart.price }}</p>
+          <svg
+          (click)="deleteProductToCart(productCart.newId)"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6 cursor-pointer"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </div>
+  </div>
+}
