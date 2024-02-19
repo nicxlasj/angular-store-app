@@ -1,12 +1,17 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, computed, signal } from '@angular/core';
 import { Product } from '../models/product.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartService {
-
   productsToCart = signal<Product[]>([]);
+  totalPrice = computed(() => {
+    const cart = this.productsToCart();
+    let total = cart.reduce((prev, curr)=> prev + curr.price, 0);
+    return total;
+  });
+
   addToCart(product: Product) {
     this.productsToCart.update((prevState) => {
       console.log(prevState);
@@ -15,8 +20,10 @@ export class CartService {
       return products;
     });
   }
-  constructor() { }
+  constructor() {}
   deleteProductToCart(newId?: number) {
-    this.productsToCart.set(this.productsToCart().filter((x) => x.newId !== newId));
+    this.productsToCart.set(
+      this.productsToCart().filter((x) => x.newId !== newId)
+    );
   }
 }

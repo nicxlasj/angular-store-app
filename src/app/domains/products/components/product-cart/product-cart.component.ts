@@ -10,10 +10,8 @@ import { CartService } from '../../../shared/services/cart.service';
   styleUrl: './product-cart.component.css',
 })
 export class ProductCartComponent {
-  //@Input() productsCart!: Product[];
-  //@Output() deleteProduct = new EventEmitter<Product[]>();
   private cartService = inject(CartService);
-  productsCart = this.cartService.productsToCart; 
+  productsCart = this.cartService.productsToCart;
   deleteProductToCart(newId?: number) {
     this.cartService.deleteProductToCart(newId);
   }

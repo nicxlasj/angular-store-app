@@ -1,12 +1,13 @@
-import { Component, Input, inject, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Product } from '../models/product.model';
 import { ProductCartComponent } from '../../products/components/product-cart/product-cart.component';
 import { CartService } from '../services/cart.service';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [ProductCartComponent],
+  imports: [ProductCartComponent, CurrencyPipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
@@ -15,7 +16,7 @@ export class HeaderComponent {
   //@Input() cartProducts: Product[] = [];
   private cartService = inject(CartService);
   cartProducts = this.cartService.productsToCart;  
-
+  totalPrice = this.cartService.totalPrice;
   showCartHandler() {
     this.showCart.update((x) => !x);
   }

@@ -3,6 +3,7 @@ import { ProductComponent } from '../../components/product/product.component';
 import { Product } from '../../../shared/models/product.model';
 import { HeaderComponent } from '../../../shared/header/header.component';
 import { CartService } from '../../../shared/services/cart.service';
+import { ProductsService } from '../../../shared/services/products.service';
 @Component({
   selector: 'app-list',
   standalone: true,
@@ -11,11 +12,14 @@ import { CartService } from '../../../shared/services/cart.service';
   styleUrl: './list.component.css',
 })
 export class ListComponent implements OnInit {
-  products = signal<Product[]>([]);
   private cartService = inject(CartService);
+  private productService = inject(ProductsService);
+  products = this.productService.products;
   productsToCart = this.cartService.productsToCart;
+
   ngOnInit(): void {
-    this.getProducts();
+    this.productService.getProducts();
+    console.log(this.products());
   }
   addToCart(product: Product) {
     product.newId = Math.random() * 10;
@@ -26,12 +30,5 @@ export class ListComponent implements OnInit {
       })
     );
     this.cartService.addToCart(product);
-  }
-
-  async getProducts() {
-    const response = await fetch('https://fakestoreapi.com/products');
-    const products = await response.json();
-    this.products.set(products);
-    
   }
 }

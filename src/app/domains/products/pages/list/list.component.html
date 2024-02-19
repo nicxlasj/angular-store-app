@@ -1,6 +1,6 @@
 <app-header />
 
-<div class="grid grid-cols-4 ml-5">
+<div class="grid grid-cols-4 ml-5 mx-auto">
   @for (product of products(); track $index) {
 
   <app-product [product]="product" (cartCounter)="addToCart($event)"></app-product>

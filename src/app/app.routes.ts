@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { ListComponent } from './domains/products/pages/list/list.component';
-import { ProductComponent } from './domains/products/components/product/product.component';
+import { NotFoundComponent } from './domains/shared/not-found/not-found.component';
 
 export const routes: Routes = [
   {
@@ -8,7 +8,7 @@ export const routes: Routes = [
     component: ListComponent,
   },
   {
-    path: 'products',
-    component: ProductComponent,
+    path: '**',
+    component: NotFoundComponent
   }
 ];

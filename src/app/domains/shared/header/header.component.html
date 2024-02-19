@@ -48,7 +48,11 @@
       </svg>
     </button>
   </div>
-  <div class="h-full w-full mt-2 flex flex-col space-y-2 ">
+  <div class="h-full w-full mt-2 flex flex-col space-y-3">
     <app-product-cart />
+    <div class="flex justify-between mb-4">
+      <p class="font-light text-lg">Total price</p>
+      <p class="text-lg font-semibold">{{ totalPrice() | currency }}</p>
+    </div>
   </div>
 </div>
