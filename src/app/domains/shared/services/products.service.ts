@@ -14,4 +14,8 @@ export class ProductsService {
       this.products.set(product);
     });
   }
+  getOne(id: number){
+    const product = this.products().filter(product => product.id === id);
+    return product[0];
+  }
 }

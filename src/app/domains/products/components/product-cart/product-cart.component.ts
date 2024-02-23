@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
-import { Product } from '../../../shared/models/product.model';
+import { Component, inject } from '@angular/core';
 import { CartService } from '../../../shared/services/cart.service';
 
 @Component({

@@ -13,6 +13,12 @@ export class CartService {
   });
 
   addToCart(product: Product) {
+    this.productsToCart.set(
+      this.productsToCart().map((product) => {
+        let product1 = {...product, newId: Math.random() * 10 };
+        return product1;
+      })
+    );
     this.productsToCart.update((prevState) => {
       console.log(prevState);
       const products = [...prevState, product];
@@ -20,7 +26,6 @@ export class CartService {
       return products;
     });
   }
-  constructor() {}
   deleteProductToCart(newId?: number) {
     this.productsToCart.set(
       this.productsToCart().filter((x) => x.newId !== newId)

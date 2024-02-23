@@ -14,7 +14,6 @@ import { RouterLinkActive, RouterModule } from '@angular/router';
 })
 export class HeaderComponent {
   showCart = signal(false);
-  //@Input() cartProducts: Product[] = [];
   private cartService = inject(CartService);
   cartProducts = this.cartService.productsToCart;  
   totalPrice = this.cartService.totalPrice;
