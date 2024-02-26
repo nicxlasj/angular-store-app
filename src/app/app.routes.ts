@@ -11,15 +11,15 @@ export const routes: Routes = [
     component: LayoutComponent,
     children: [{
         path: '',
-        component: ListComponent
+        loadComponent: ()=> import('./domains/products/pages/list/list.component').then(x => x.ListComponent)
       },
       {
         path: 'about',
-        component: AboutComponent
+        loadComponent: ()=> import('./domains/info/about/about.component').then(x => x.AboutComponent)
       },
       {
         path: 'product/:id',
-        component: ProductDetailComponent
+        loadComponent: ()=> import('./domains/products/pages/product-detail/product-detail.component').then(x => x.ProductDetailComponent)
       }
       ]
   },
